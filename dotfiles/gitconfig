@@ -1,0 +1,19 @@
+[user]
+	name = claudiob
+	email = claudiob@gmail.com
+[alias]
+	co = checkout
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = ~/.gitignore
+	editor = mate -w
+	autocrlf = input
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
+[github]
+	user = claudiob

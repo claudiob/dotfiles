@@ -1,0 +1,3 @@
+. ~/bin/dotfiles/bash/env     # environment variables used by other scripts
+. ~/bin/dotfiles/bash/config  # shell settings to construct the prompt
+. ~/bin/dotfiles/bash/aliases # aliases and functions that take arguments

@@ -1,0 +1,3 @@
+Host gollum
+  HostName gollum.iiia.csic.es
+  User claudio

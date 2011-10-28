@@ -1,0 +1,73 @@
+# TIPS
+# ----
+# !79                  > rerun the command 79 in the history
+# !echo                > rerun the last command with 'echo' in the history
+# ^r ^g                > do a reverse search, then cancel
+# mv README{.txt,.doc} > change extension without retyping the name
+
+# SHELL
+# -----
+alias  l='ls -la'
+alias  h='history' 
+alias md='mkdir -p'
+alias cx='chmod +x'
+
+# DOTFILES
+# --------
+alias sb='source ~/.bashrc'
+alias reload='source ~/bin/dotfiles/bash/aliases'
+alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'
+alias ee="mate ~/bin/dotfiles/bash/env"
+
+# GIT
+# ---
+alias gs='git status'
+function gg() { # git commit that reads the message from the same line
+    git add . 
+    git commit -v -a -m "$*"
+}
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
+
+# RAILS
+# -----
+alias  r='rails'
+alias rs='rails server'
+
+# SVN
+# ---
+alias unsvn="find . -name '.svn' -exec rm -rf {} \;"
+
+# CUSTOM DROPBOX
+# --------------
+PPFILE='__drop__.zip'
+PPTO='gollum'
+
+function push {
+  rm -f $PPFILE
+  zip -r $PPFILE $*
+  scp $PPFILE $PPTO:
+  rm -f $PPFILE
+}
+
+function pull {
+  rm -f $PPFILE
+  scp $PPTO:$PPFILE .
+  ssh $PPTO rm -f $PPFILE
+  unzip $PPFILE
+  rm -f $PPFILE
+}
+
+# TEXTMATE
+# --------
+alias  m='mate'
+
+# TOP
+# ---
+alias tc='top -o cpu'
+alias tv='top -o vsize'
+
+# ZIP
+# ---
+function zipr() {
+  zip -r $1.zip $1
+}
