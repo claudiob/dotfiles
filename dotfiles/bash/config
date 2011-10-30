@@ -1,3 +1,10 @@
+# RBENV
+# ------
+eval "$(rbenv init -)" # enable ruby from rbenv
+
+# PROMPT
+# ------
+
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # misc
 NO_COLOR='\e[0m' #disable any colors
@@ -39,7 +46,9 @@ BCYAN='\e[46m'
 BWHITE='\e[47m'
 
 # Status face - directory - VCS
-HAPPY='\[\e[32m\]☺\[\e[0m\]'
-SAD='\[\e[31m\]☹\[\e[0m\]'
-FACE="\`if [ \$? = 0 ]; then echo $HAPPY; else echo $SAD; fi\`"
-PS1="$FACE \[$BLUE\]\w\[$EYELLOW\]\$(vcprompt)\[$NO_COLOR\] → "
+# HAPPY='\[\e[32m\]☺\[\e[0m\]'
+# SAD='\[\e[31m\]☹\[\e[0m\]'
+# FACE="\`if [ \$? = 0 ]; then echo $HAPPY; else echo $SAD; fi\`"
+# PS1="$FACE \[$BLUE\]\w\[$EYELLOW\]\$(vcprompt)\[$NO_COLOR\] → "
+
+PS1="\[$BLUE\]\$(vcprompt)\[\033[33;1m\]\w\[\033[m\]\$ "

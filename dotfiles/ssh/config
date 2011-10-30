@@ -1,3 +1,7 @@
 Host gollum
-  HostName gollum.iiia.csic.es
+  HostName 158.109.36.2
+  User claudio
+
+Host svn
+  HostName 158.109.36.86
   User claudio

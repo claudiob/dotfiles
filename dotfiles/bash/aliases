@@ -11,6 +11,7 @@ alias  l='ls -la'
 alias  h='history' 
 alias md='mkdir -p'
 alias cx='chmod +x'
+alias rf='rm -rf'
 
 # DOTFILES
 # --------
@@ -22,16 +23,45 @@ alias ee="mate ~/bin/dotfiles/bash/env"
 # GIT
 # ---
 alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
 function gg() { # git commit that reads the message from the same line
     git add . 
     git commit -v -a -m "$*"
 }
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
+# RAKE
+# ----
+alias rdm='rake db:migrate'
+alias rds='rake db:setup'
+alias rdr='rake db:rollback'
+
 # RAILS
 # -----
 alias  r='rails'
-alias rs='rails server'
+alias rv='rails server'
+alias rc='rails console'
+alias rg='rails generate'
+function rn {
+	cd ~/code;
+	rails new $* --skip-gemfile --skip-prototype --database=mysql;
+	cd $1;
+	cp ../Gemfile .;
+	bundle;
+}
+
+# BUNDLER
+# -------
+alias be='bundle exec'
+alias bi='bundle install'
+
+# RBENV
+# -----
+function gi {
+	gem install $*; 
+	rbenv rehash;
+}
 
 # SVN
 # ---
