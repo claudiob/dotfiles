@@ -25,6 +25,7 @@ alias ee="mate ~/bin/dotfiles/bash/env"
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log'
+alias gp='git push origin master'
 function gg() { # git commit that reads the message from the same line
     git add . 
     git commit -v -a -m "$*"
