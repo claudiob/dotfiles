@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Download and copy the hub command to ~/bin.
+# See https://github.com/defunkt/hub
+
+mkdir -p ~/tmphub
+cd ~/tmphub
+curl http://defunkt.io/hub/standalone -sLo ~/bin/hub
+chmod 755 ~/bin/hub
+rm -rf ~/tmphub
