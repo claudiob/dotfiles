@@ -1,6 +1,32 @@
-.DS_Store
-.svn
-*~
-.*.swp
-*.pyc
+# Private files
+# -------------
 *.secret
+
+# Compiled source
+# ---------------
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# Version control
+# ---------------
+.svn
+
+# Logs and databases
+# ------------------
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+# ------------------
+*~
+.DS_Store*
+ehthumbs.db
+.*.swp
+Icon?
+Thumbs.db

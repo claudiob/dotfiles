@@ -14,4 +14,5 @@ How to install on a new computer
         source ~/.bashrc
         vcprompt-install
         hub-install
+        git update-index --assume-unchanged ~/bin/dotfiles/bash/env.secret 
         
