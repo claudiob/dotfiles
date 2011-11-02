@@ -11,3 +11,7 @@ How to install on a new computer
         ln -sf ~/bin/dotfiles/gitconfig  ~/.gitconfig
         ln -sf ~/bin/dotfiles/gitignore  ~/.gitignore
         ln -sf ~/bin/dotfiles/ssh/config ~/.ssh/config
+        source ~/.bashrc
+        vcprompt-install
+        hub-install
+        

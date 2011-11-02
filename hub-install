@@ -8,3 +8,4 @@ cd ~/tmphub
 curl http://defunkt.io/hub/standalone -sLo ~/bin/hub
 chmod 755 ~/bin/hub
 rm -rf ~/tmphub
+rm -rf ~/bin/hub-install
