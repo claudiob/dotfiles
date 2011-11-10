@@ -50,12 +50,13 @@ alias rv='rails server'
 # alias rc='rails console' use pry if installed
 function rc {
   if which pry >/dev/null; then
-    pry -r ./config/environment
+    pry # This also load Rails -- check .pryrc
   else
     rails console
   fi
 }
 alias rg='rails generate'
+alias rgm='rails generate migration'
 function rn {
   cd ~/code;
   rails new $* --skip-gemfile --skip-prototype --database=mysql;
