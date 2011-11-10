@@ -28,7 +28,9 @@ alias gh='git diff HEAD HEAD~'
 alias gl='git log'
 alias gu='git pull'
 alias gc='git commit'
-alias gp='git push origin master'
+alias gb='git branch'
+alias grb='git branch -r'
+alias gp='git push'
 function gg() { # git commit that reads the message from the same line
     git add . 
     git commit -v -a -m "$*"
@@ -45,14 +47,21 @@ alias rdr='rake db:rollback'
 # -----
 alias  r='rails'
 alias rv='rails server'
-alias rc='rails console'
+# alias rc='rails console' use pry if installed
+function rc {
+  if which pry >/dev/null; then
+    pry -r ./config/environment
+  else
+    rails console
+  fi
+}
 alias rg='rails generate'
 function rn {
-	cd ~/code;
-	rails new $* --skip-gemfile --skip-prototype --database=mysql;
-	cd $1;
-	cp ../Gemfile .;
-	bundle;
+  cd ~/code;
+  rails new $* --skip-gemfile --skip-prototype --database=mysql;
+  cd $1;
+  cp ../Gemfile .;
+  bundle;
 }
 
 # BUNDLER
@@ -63,8 +72,8 @@ alias bi='bundle install'
 # RBENV
 # -----
 function gi {
-	gem install $*; 
-	rbenv rehash;
+  gem install $*; 
+  rbenv rehash;
 }
 
 # SVN
@@ -105,3 +114,10 @@ alias tv='top -o vsize'
 function zipr() {
   zip -r $1.zip $1
 }
+
+# GOOD
+# ----
+
+alias cdr='cd ~/code/good.rb'
+alias cdi='cd ~/code/good.is'
+alias cdg='cd ~/code/gems'
