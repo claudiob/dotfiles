@@ -1,3 +1,5 @@
 export EDITOR="mate -w"
 
 export PATH="$PATH:~/bin"
+
+export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
