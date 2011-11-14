@@ -45,6 +45,7 @@ alias ungit="find . -name '.git' -exec rm -rf {} \;"
 alias rdm='rake db:migrate'
 alias rds='rake db:setup'
 alias rdr='rake db:rollback'
+alias  rr='rake routes'
 
 # RAILS
 # -----
