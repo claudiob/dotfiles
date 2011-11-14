@@ -22,21 +22,24 @@ alias ee="mate ~/bin/dotfiles/bash/env"
 
 # GIT
 # ---
-alias gs='git status'
-alias gd='git diff'
-alias gh='git diff HEAD HEAD~'
-alias ga='git add'
-alias gl='git log'
-alias gu='git pull'
-alias gm='git mv'
+alias  gs='git status'
+alias  gd='git diff'
+alias  gh='git diff HEAD HEAD~'
+alias  ga='git add'
+alias  gl='git log'
+alias  gu='git pull'
+alias  gm='git mv'
 alias gcl='git clone'
-alias gc='git commit'
-alias gb='git branch'
-alias grb='git branch -r'
-alias gp='git push'
+alias  gc='git commit'
+alias  gb='git branch'
+alias gbr='git branch -r'
+alias  gp='git push'
+function gbt() { # git checkout and track remote branch
+  git checkout -t -b $1 origin/$1
+}
 function gg() { # git commit that reads the message from the same line
-    git add . 
-    git commit -v -a -m "$*"
+  git add . 
+  git commit -v -a -m "$*"
 }
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
