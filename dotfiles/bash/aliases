@@ -41,6 +41,13 @@ function gg() { # git commit that reads the message from the same line
   git add . 
   git commit -v -a -m "$*"
 }
+function gbump() { # bumps a gem, commits and create a tag
+  rake version:bump:patch
+  git tag -a v`cat VERSION` -m'`git log HEAD^^..HEAD^ --format=%s`'
+  git push
+  git push --tags
+}
+
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
 # RAKE
