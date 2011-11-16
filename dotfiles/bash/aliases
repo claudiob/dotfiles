@@ -31,6 +31,7 @@ alias  gu='git pull'
 alias  gm='git mv'
 alias gcl='git clone'
 alias  gc='git commit'
+alias  go='git checkout'
 alias  gb='git branch'
 alias gbr='git branch -r'
 alias  gp='git push'
@@ -52,6 +53,7 @@ alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
 # RAKE
 # ----
+alias rdc='rake db:create'
 alias rdm='rake db:migrate'
 alias rds='rake db:setup'
 alias rdr='rake db:rollback'
@@ -83,6 +85,7 @@ function rn {
 # -------
 alias be='bundle exec'
 alias bi='bundle install'
+alias bu='bundle update'
 
 # RBENV
 # -----
@@ -133,6 +136,7 @@ function zipr() {
 # GOOD
 # ----
 
+alias   c='cd ~/code; cd'
 alias cdr='cd ~/code/good.rb'
 alias cdi='cd ~/code/good.is'
 alias cdg='cd ~/code/gems'
