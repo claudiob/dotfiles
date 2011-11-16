@@ -37,6 +37,8 @@ alias  gb='git branch'
 alias gbr='git branch -r'
 alias gmm='git merge master'
 alias  gp='git push'
+alias  gt='git stash'
+alias gta='git stash apply'
 function gbt() { # git checkout and track remote branch
   git checkout -t -b $1 origin/$1
 }
