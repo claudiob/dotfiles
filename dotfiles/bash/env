@@ -1,5 +1,6 @@
 export EDITOR="mate -w"
 
-export PATH="$PATH:~/bin"
+# ~/bin is prepended to have ~/bin/ssh replace /usr/bin/ssh
+export PATH="~/bin:$PATH"
 
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
