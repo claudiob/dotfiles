@@ -17,4 +17,8 @@ How to install on a new computer
         vcprompt-install
         hub-install
         git update-index --assume-unchanged ~/bin/dotfiles/bash/env.secret 
-        
+
+Other tips
+----------
+
+* [Navigate with keyboard between OSX Terminal tabs](http://superuser.com/questions/26100/u/54004) 
