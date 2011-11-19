@@ -12,6 +12,7 @@ alias  h='history'
 alias md='mkdir -p'
 alias cx='chmod +x'
 alias rf='rm -rf'
+alias dh='du -hd 0' # current folder size
 
 # DOTFILES
 # --------
@@ -24,11 +25,12 @@ alias ee="mate ~/bin/dotfiles/bash/env"
 # ---
 alias  gs='git status'
 alias  gd='git diff'
-alias  gh='git diff HEAD HEAD~'
+alias gdh='git diff HEAD HEAD~'
 alias  ga='git add'
 alias  gl='git log'
 alias glf='git log --pretty=full'
 alias glm='git log --pretty=full --author `git config user.name`'
+alias  gh='git log --pretty=format:"%h %ad | %sca%d [%an]" --graph --date=short --all'
 alias  gu='git pull'
 alias  gm='git mv'
 alias gcl='git clone'
@@ -40,6 +42,7 @@ alias gmm='git merge master'
 alias  gp='git push'
 alias  gt='git stash'
 alias gta='git stash apply'
+alias gam='git commit --amend' # include new changes in the last commit
 function gbt() { # git checkout and track remote branch
   git checkout -t -b $1 origin/$1
 }
