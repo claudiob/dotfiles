@@ -43,6 +43,8 @@ alias  gp='git push'
 alias  gt='git stash'
 alias gta='git stash apply'
 alias gam='git commit --amend' # include new changes in the last commit
+alias grh='git reset HEAD'
+alias grhh='git reset --hard HEAD'
 function gbt() { # git checkout and track remote branch
   git checkout -t -b $1 origin/$1
 }
