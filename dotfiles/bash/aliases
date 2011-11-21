@@ -72,8 +72,13 @@ alias  rr='rake routes'
 # RAILS
 # -----
 alias  r='rails'
-alias rv='rails server'
-
+function rv { # Rails 2 and 3 server
+  if [ -f script/console ]; then
+    script/server $*;
+  else
+    rails server $*;
+  fi
+}
 function get_bg {
   osascript -e "tell application \"Terminal\" to get current settings of first window"
 }
@@ -173,3 +178,4 @@ alias   c='cd ~/code; cd'
 alias cdr='cd ~/code/good.rb'
 alias cdi='cd ~/code/good.is'
 alias cdg='cd ~/code/gems'
+alias cdm='cd ~/code/maker'
