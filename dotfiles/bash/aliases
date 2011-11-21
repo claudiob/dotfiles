@@ -153,7 +153,7 @@ function pull {
 
 # TEXTMATE
 # --------
-alias  m='mate'
+alias  m='mate .'
 
 # TOP
 # ---
