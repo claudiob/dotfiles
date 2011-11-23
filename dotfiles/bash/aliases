@@ -34,6 +34,8 @@ alias  gh='git log --pretty=format:"%h %ad | %sca%d [%an]" --graph --date=short 
 alias  gu='git pull'
 alias  gm='git mv'
 alias gcl='git clone'
+alias gli='git update-index --assume-unchanged' # locally ignore changes
+alias glu='git update-index --no-assume-unchanged' # stop ignoring changes
 alias  gc='git commit'
 alias  go='git checkout'
 alias  gb='git branch'
