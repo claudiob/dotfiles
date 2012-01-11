@@ -30,7 +30,8 @@ alias  ga='git add'
 alias  gl='git log'
 alias glf='git log --pretty=full'
 alias glm='git log --pretty=full --author `git config user.name`'
-alias  gh='git log --pretty=format:"%h %ad | %sca%d [%an]" --graph --date=short --all'
+alias  gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short --all'
+alias ghm='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias  gu='git pull'
 alias  gm='git mv'
 alias gcl='git clone'
@@ -47,8 +48,12 @@ alias gta='git stash apply'
 alias gam='git commit --amend' # include new changes in the last commit
 alias grh='git reset HEAD'
 alias grhh='git reset --hard HEAD'
+alias  gbn="git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'" # current branch name
 function gbt() { # git checkout and track remote branch
   git checkout -t -b $1 origin/$1
+}
+function gsu() { # git track the remote branch with the same name as the current
+  git branch --set-upstream $(gbn) origin/$(gbn)  
 }
 function gg() { # git commit that reads the message from the same line
   git add . 
@@ -181,3 +186,13 @@ alias cdr='cd ~/code/good.rb'
 alias cdi='cd ~/code/good.is'
 alias cdg='cd ~/code/gems'
 alias cdm='cd ~/code/maker'
+
+function updatedb() { # e.g. updatedb www
+  echo 'Downloading...'
+  scp monitor:/ebs/backup/$1/$1-$(date -v -1d +"%Y-%m-%d")-03.sql.gz /tmp/www.sql.gz
+  echo 'Uncompressing...'
+  gunzip /tmp/www.sql.gz
+  echo 'Importing...'
+  mysql -u root good < /tmp/www.sql
+  echo 'Done!'
+}
