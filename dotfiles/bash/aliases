@@ -49,6 +49,9 @@ alias gam='git commit --amend' # include new changes in the last commit
 alias grh='git reset HEAD'
 alias grhh='git reset --hard HEAD'
 alias  gbn="git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'" # current branch name
+function grd() { # git restore deleted file
+  git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
+}
 function gbt() { # git checkout and track remote branch
   git checkout -t -b $1 origin/$1
 }
