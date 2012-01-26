@@ -39,6 +39,7 @@ alias gli='git update-index --assume-unchanged' # locally ignore changes
 alias glu='git update-index --no-assume-unchanged' # stop ignoring changes
 alias  gc='git commit'
 alias  go='git checkout'
+alias gcp='git cherry-pick'
 alias  gb='git branch'
 alias gbr='git branch -r'
 alias gmm='git merge master'
@@ -119,7 +120,8 @@ function rc { # custom Rails console
   fi
   unset_bg $term_settings # restore previous color
 }
-alias rg='rails generate'
+alias  rg='rails generate'
+alias rgs='rails generate scaffold'
 alias rgm='rails generate migration'
 function rn {
   cd ~/code;
