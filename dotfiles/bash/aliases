@@ -27,7 +27,7 @@ alias  gs='git status'
 alias  gd='git diff'
 alias gdh='git diff HEAD HEAD~'
 alias  ga='git add'
-alias  gl='git log'
+alias  gl='git log --follow'
 alias glf='git log --pretty=full'
 alias glm='git log --pretty=full --author `git config user.name`'
 alias  gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short --all'
@@ -172,6 +172,7 @@ function pull {
 # --------
 alias  m='mate .'
 alias hosts='mate /etc/hosts'
+
 # TOP
 # ---
 alias tc='top -o cpu'
