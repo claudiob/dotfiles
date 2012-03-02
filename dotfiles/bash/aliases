@@ -80,6 +80,7 @@ alias rdm='rake db:migrate'
 alias rds='rake db:setup'
 alias rdr='rake db:rollback'
 alias  rr='rake routes'
+alias  rj='rake jasmine'
 
 # RAILS
 # -----
@@ -193,6 +194,9 @@ alias cdr='cd ~/code/good.rb'
 alias cdi='cd ~/code/good.is'
 alias cdg='cd ~/code/gems'
 alias cdm='cd ~/code/maker'
+alias cdh='cd ~/code/hatch'
+alias cdc='cd ~/code/calumet'
+alias cdz='cd ~/code/citizen'
 
 function updatedb() { # e.g. updatedb www
   echo 'Downloading...'
