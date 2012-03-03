@@ -34,7 +34,7 @@ alias glm='git log --pretty=full --author `git config user.name`'
 alias  gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short --all'
 alias ghm='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias  gu='git pull'
-alias  gm='git mv'
+alias  gv='git mv'
 alias gcl='git clone'
 alias gli='git update-index --assume-unchanged' # locally ignore changes
 alias glu='git update-index --no-assume-unchanged' # stop ignoring changes
@@ -43,6 +43,8 @@ alias  go='git checkout'
 alias gcp='git cherry-pick'
 alias  gb='git branch'
 alias gbr='git branch -r'
+alias  gm='git merge'
+alias gmf='git merge --no-ff'
 alias gmm='git merge master'
 alias  gp='git push'
 alias  gt='git stash'
@@ -72,6 +74,20 @@ function gbump() { # bumps a gem, commits and create a tag
 }
 
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
+
+# GIT AUTOCOMPLETE
+# ----------------
+source ~/bin/git-completion.bash
+complete -o default -o nospace -F _git_diff gd
+complete -o default -o nospace -F _git_log gl
+complete -o default -o nospace -F _git_pull gu
+complete -o default -o nospace -F _git_checkout go
+complete -o default -o nospace -F _git_branch gb
+complete -o default -o nospace -F _git_merge gm
+complete -o default -o nospace -F _git_merge gmf
+complete -o default -o nospace -F _git_push gp
+complete -o default -o nospace -F _git_stash gt
+# Nice to have: the output of gbr autocompletes gbt
 
 # RAKE
 # ----
