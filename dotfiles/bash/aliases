@@ -52,6 +52,7 @@ alias gta='git stash apply'
 alias gam='git commit --amend' # include new changes in the last commit
 alias grh='git reset HEAD'
 alias grhh='git reset --hard HEAD'
+alias  gla='git shortlog -ns' # Summary by author
 alias  gbn="git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'" # current branch name
 function grd() { # git restore deleted file
   git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
@@ -97,6 +98,7 @@ alias rds='rake db:setup'
 alias rdr='rake db:rollback'
 alias  rr='rake routes'
 alias  rj='rake jasmine'
+alias rake!='rf spec/fixtures/vcr_cassettes && rake'
 
 # RAILS
 # -----
@@ -155,6 +157,23 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
 
+# Don't require bundle exec for main bundled commands
+# From http://marc-bowes.com/2011/09/21/dry-your-bundle-exec-tears.html
+bundle_commands="rake spec rspec cucumber cap watchr rails rackup guard etl"
+
+function run_bundler_cmd () {
+  if [ -r ./Gemfile ]; then
+    bundle exec $@
+  else
+    $@
+  fi
+}
+ 
+for cmd in $bundle_commands
+do
+  alias $cmd="run_bundler_cmd $cmd"
+done
+
 # RBENV
 # -----
 function gi {
@@ -211,15 +230,5 @@ alias cdi='cd ~/code/good.is'
 alias cdg='cd ~/code/gems'
 alias cdm='cd ~/code/maker'
 alias cdh='cd ~/code/hatch'
-alias cdc='cd ~/code/calumet'
+alias cdu='cd ~/code/calumet'
 alias cdz='cd ~/code/citizen'
-
-function updatedb() { # e.g. updatedb www
-  echo 'Downloading...'
-  scp monitor:/ebs/backup/$1/$1-$(date -v -1d +"%Y-%m-%d")-03.sql.gz /tmp/www.sql.gz
-  echo 'Uncompressing...'
-  gunzip /tmp/www.sql.gz
-  echo 'Importing...'
-  mysql -u root good < /tmp/www.sql
-  echo 'Done!'
-}
