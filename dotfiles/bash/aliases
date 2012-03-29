@@ -54,6 +54,9 @@ alias grh='git reset HEAD'
 alias grhh='git reset --hard HEAD'
 alias  gla='git shortlog -ns' # Summary by author
 alias  gbn="git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'" # current branch name
+function gra() { # git remote add and fetch from another GitHub user
+  git remote add -f $1 git://github.com/$1/`basename $PWD`.git
+}
 function grd() { # git restore deleted file
   git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
 }
@@ -72,6 +75,9 @@ function gbump() { # bumps a gem, commits and create a tag
   git tag -a v`cat VERSION` -m'`git log HEAD^^..HEAD^ --format=%s`'
   git push
   git push --tags
+}
+function gsh() { # shortens a Github URL
+  curl -i http://git.io -F "url=$1"
 }
 
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
@@ -179,6 +185,10 @@ done
 function gi {
   gem install $*; 
   rbenv rehash;
+}
+
+function gua { # gem uninstall all
+  gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 }
 
 # SVN
