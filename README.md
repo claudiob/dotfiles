@@ -34,6 +34,7 @@ How to install on a new computer
 
 9. Load **SSH settings**:
 
+        mkdir -p .ssh
         ln -sf ~/bin/dotfiles/ssh/config ~/.ssh/config
 
 10. Load **git prompt** support:
@@ -47,6 +48,7 @@ How to install on a new computer
 
 12. Don't track further changes to your private settings:
 
+        cd ~/bin
         git update-index --assume-unchanged ~/bin/dotfiles/bash/env.secret 
         git update-index --assume-unchanged ~/bin/dotfiles/ssh/config 
 
@@ -55,4 +57,7 @@ How to install on a new computer
 Other tips
 ----------
 
-* [Navigate with keyboard between OSX Terminal tabs](http://superuser.com/questions/26100/u/54004) 
+* Install [OSX gcc installer](https://github.com/kennethreitz/osx-gcc-installer)
+* Install [homebrew](http://mxcl.github.com/homebrew)
+* Install [rbenv](https://github.com/sstephenson/rbenv)
+* Learn how to [navigate with keyboard between OSX Terminal tabs](http://superuser.com/questions/26100/u/54004) 
