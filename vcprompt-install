@@ -5,9 +5,11 @@
 
 mkdir -p ~/tmpvcprompt
 cd ~/tmpvcprompt
-hg clone http://vc.gerg.ca/hg/vcprompt/
-cd vcprompt
+curl http://vc.gerg.ca/hg/vcprompt/archive/tip.zip > tip.zip
+unzip tip.zip
+cd `ls|grep vcprompt`
 make
 cp vcprompt ~/bin/vcprompt
 rm -rf ~/tmpvcprompt
-rm -rf ~/bin/vcprompt-install
+cd
+source ~/.bashrc

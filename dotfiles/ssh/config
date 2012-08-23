@@ -1,7 +1,4 @@
-Host gollum
-  HostName 158.109.36.2
-  User claudio
-
-Host svn
-  HostName 158.109.36.86
-  User claudio
+# List hosts you normally SSH to in this file, such as:
+# Host production
+#   HostName 99.123.45.123
+#   User ubuntu
