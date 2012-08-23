@@ -44,13 +44,13 @@ alias gcp='git cherry-pick'
 alias  gb='git branch'
 alias gbr='git branch -r'
 alias  gm='git merge'
-alias gmf='git merge --no-ff'
+alias gmf='git merge --no-ff --no-edit'
 alias gmm='git merge master'
 alias grm='git rebase master'
 alias  gp='git push'
 alias  gt='git stash'
 alias gta='git stash apply'
-alias gam='git commit --amend' # include new changes in the last commit
+alias gca='git add -A . && git commit --amend --no-edit'
 alias grh='git reset HEAD'
 alias grhh='git reset --hard HEAD'
 alias  gla='git shortlog -ns' # Summary by author
@@ -218,7 +218,7 @@ function pull {
 
 # TEXTMATE
 # --------
-alias  m='mate .'
+#alias  m='mate .'
 alias hosts='mate /etc/hosts'
 
 # TOP
