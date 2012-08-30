@@ -80,6 +80,16 @@ function gbump() { # bumps a gem, commits and create a tag
 function gsh() { # shortens a Github URL
   curl -i http://git.io -F "url=$1"
 }
+function gp!() { # how I usually deploy a branch
+  git checkout master
+  git pull
+  git checkout $1
+  git rebase master
+  git checkout master
+  git merge --no-ff --no-edit $1
+  git push
+  git branch -d $1
+}
 
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
@@ -93,6 +103,7 @@ complete -o default -o nospace -F _git_checkout go
 complete -o default -o nospace -F _git_branch gb
 complete -o default -o nospace -F _git_merge gm
 complete -o default -o nospace -F _git_merge gmf
+complete -o default -o nospace -F _git_merge gp!
 complete -o default -o nospace -F _git_push gp
 complete -o default -o nospace -F _git_stash gt
 # Nice to have: the output of gbr autocompletes gbt
