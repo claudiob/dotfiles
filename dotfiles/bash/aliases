@@ -90,6 +90,9 @@ function gp!() { # how I usually deploy a branch
   git push
   git branch -d $1
 }
+function gc-() { # restore the last version of a deleted file
+  git checkout $(git log --pretty=format:"%h" --follow -- $1 | head -n 1)^ -- $1
+}
 
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
