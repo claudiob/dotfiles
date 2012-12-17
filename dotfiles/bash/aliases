@@ -180,7 +180,7 @@ alias bu='bundle update'
 
 # Don't require bundle exec for main bundled commands
 # From http://marc-bowes.com/2011/09/21/dry-your-bundle-exec-tears.html
-bundle_commands="rake spec rspec cucumber cap watchr rails rackup guard etl compass"
+bundle_commands="rake spec rspec cucumber cap watchr rails rackup guard etl compass jasmine-headless-webkit"
 
 function run_bundler_cmd () {
   if [ -r ./Gemfile ]; then
