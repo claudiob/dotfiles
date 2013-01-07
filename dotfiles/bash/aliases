@@ -124,10 +124,12 @@ alias rake!='rf spec/fixtures/vcr_cassettes && rake'
 # RAILS
 # -----
 alias  r='rails'
-function rv { # Rails 2 and 3 server
-  if [ -f script/rails ]; then
+function rv {
+  if [ -f script/rails ]; then # Rails 3
     script/rails server $*;
-  else
+  elif [ -f bin/rails ]; then # Rails 4
+    bin/rails server $*;
+  else # Rails 2
     script/server $*;
   fi
 }
