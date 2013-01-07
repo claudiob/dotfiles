@@ -204,8 +204,8 @@ function gi {
   rbenv rehash;
 }
 
-function gua { # gem uninstall all
-  gem list | cut -d" " -f1 | xargs gem uninstall -aIx
+function gua { # gem uninstall all, except bundler, pry and git (used by Textmate Github plugin)
+  gem list | cut -d" " -f1 | xargs gem uninstall -aIx | gem install bundler git pry
 }
 
 # SVN
