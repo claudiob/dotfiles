@@ -1,6 +1,28 @@
 [user]
-	name = claudiob
-	email = claudiob@gmail.com
+	# name = claudiob
+	# email = claudiob@gmail.com
+
+	name = Claudio Baccigalupo
+	email = claudio@goodinc.com
+ 
+        # name = Claudio Baccigalupo ✒  Jeremy Cohen Hoffing
+        # email = dev+claudiob+jeremy@goodinc.com
+
+        # name = Claudio Baccigalupo ✈  Rexy Tseng
+        # email = dev+claudiob+rexy@goodinc.com
+
+        # name = Claudio Baccigalupo ✈  Justin Jia
+        # email = dev+claudio+justin@goodinc.com
+
+        # name = Claudio Baccigalupo ♥  Nick Hughes
+        # email = dev+claudio+nick@goodinc.com
+
+        # name = Claudio Baccigalupo ♥  Ben Callaway
+        # email = dev+claudio+bcallaway@goodinc.com
+
+	# name = Claudio Baccigalupo ♥  Ryan MacInnes
+	# email = dev+claudio+ryanm@goodinc.com
+
 [alias]
 	co = checkout
 [color]
@@ -11,6 +33,8 @@
 	excludesfile = ~/.gitignore
 	editor = mate -w
 	autocrlf = input
+        paget = less -x4
+	pager = less -x3
 [apply]
 	whitespace = nowarn
 [format]

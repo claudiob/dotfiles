@@ -147,11 +147,11 @@ function unset_bg {
 
 function rc { # custom Rails console
   term_settings=$(get_bg) # store previous color
-  case $1 in # change color based on environment
-    stage|staging) set_bg "{0, 6000, 3000}" ;;
-    prod|production) set_bg "{6000, 3000, 0}" ;;
-    *) set_bg "{3000, 3000, 6000}" ;;
-  esac
+  # case $1 in # change color based on environment
+  #   stage|staging) set_bg "{0, 6000, 3000}" ;;
+  #   prod|production) set_bg "{6000, 3000, 0}" ;;
+  #   *) set_bg "{3000, 3000, 6000}" ;;
+  # esac
   if which pry >/dev/null; then # use pry if installed
     if test -z "$1"; then # if environment is present, prefix it
       pry # pry automatically load Rails -- check .pryrc
@@ -161,7 +161,7 @@ function rc { # custom Rails console
   else
     rails console $*
   fi
-  unset_bg $term_settings # restore previous color
+  #unset_bg $term_settings # restore previous color
 }
 alias  rg='rails generate'
 alias rgs='rails generate scaffold'
@@ -205,7 +205,7 @@ function gi {
 }
 
 function gua { # gem uninstall all, except bundler, pry and git (used by Textmate Github plugin)
-  gem list | cut -d" " -f1 | xargs gem uninstall -aIx | gem install bundler git pry
+  gem list | cut -d" " -f1 | xargs gem uninstall -aIx | gem install bundler git coderay slop pry
 }
 
 # SVN
@@ -248,6 +248,10 @@ function zipr() {
   zip -r $1.zip $1
 }
 
+# LOLCAT (gem install lolcat)
+# ---
+alias cat='lolcat'
+
 # GOOD
 # ----
 
@@ -259,3 +263,14 @@ alias cdm='cd ~/code/maker'
 alias cdh='cd ~/code/hatch'
 alias cdu='cd ~/code/calumet'
 alias cdz='cd ~/code/citizen'
+alias cdl='cd ~/code/caramel'
+alias cdn='cd ~/code/nutella'
+
+alias hello='echo "hello"'
+alias emptytmp="..."
+alias cleanup="ssh good@dev.good.is 'mysql -u devdb -pdigital -h dev-db.goodaws.com -e \"delete from devssodb.users where email_address = \\\"good.test@rocketmail.com\\\"; delete from devssodb.third_party_tokens where service_token = \\\"100004212764601\\\"; delete from devssodb.third_party_tokens where user_id = 727994; delete from devdb.users where email = \\\"good.test@rocketmail.com\\\";\"' && mysql -u good -pdigital -e \"delete calumet_dev.follows, calumet_dev.users from calumet_dev.follows join calumet_dev.users on users.id = follows.user_id where email = \\\"good.test@rocketmail.com\\\"\""
+alias cleanup-accept="ssh good@dev.good.is 'mysql -u devdb -pdigital -h dev-db.goodaws.com -e \"delete from devssodb.users where email_address = \\\"good.test@rocketmail.com\\\"; delete from devssodb.third_party_tokens where service_token = \\\"100004212764601\\\"; delete from devdb.users where email = \\\"good.test@rocketmail.com\\\"; delete devcalumetdb.follows, devcalumetdb.users from devcalumetdb.follows join devcalumetdb.users on users.id = follows.user_id where email = \\\"good.test@rocketmail.com\\\"\"'"
+alias cleanup-qa2="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"good.test@rocketmail.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100004212764601\\\"; delete from qadb.users where email = \\\"good.test@rocketmail.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"good.test@rocketmail.com\\\"\"'"
+alias cleanup-qa3="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"c_calumet@yahoo.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100004372031382\\\"; delete from qadb.users where email = \\\"c_calumet@yahoo.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"c_calumet@yahoo.com\\\"\"'"
+alias cleanup-qa4="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"rgodiya@ymail.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100004952623253\\\"; delete from qadb.users where email = \\\"rgodiya@ymail.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"rgodiya@ymail.com\\\"\"'"
+alias cleanup-qa5="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"shahesha87@gmail.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100002471756578\\\"; delete from qadb.users where email = \\\"shahesha87@gmail.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"shahesha87@gmail.com\\\"\"'"
