@@ -176,6 +176,8 @@ function rn {
   bundle;
 }
 
+alias jhw='jasmine-headless-webkit'
+
 # BUNDLER
 # -------
 alias be='bundle exec'
