@@ -50,5 +50,7 @@ BWHITE='\e[47m'
 # SAD='\[\e[31m\]☹\[\e[0m\]'
 # FACE="\`if [ \$? = 0 ]; then echo $HAPPY; else echo $SAD; fi\`"
 # PS1="$FACE \[$BLUE\]\w\[$EYELLOW\]\$(vcprompt)\[$NO_COLOR\] → "
-
 PS1="\[$BLUE\]\$(vcprompt)\[\033[33;1m\]\w\[\033[m\]\$ "
+
+# Tab/Window title for Terminal.app to match current directory
+PROMPT_COMMAND='echo -ne "\033]0; ${PWD##*/}\007"'
