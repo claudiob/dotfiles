@@ -252,29 +252,7 @@ function zipr() {
   zip -r $1.zip $1
 }
 
-# LOLCAT (gem install lolcat)
-# ---
-alias cat='lolcat'
-
 # GOOD
 # ----
 
 alias   c='cd ~/code; cd'
-alias cdr='cd ~/code/good.rb'
-alias cdi='cd ~/code/good.is'
-alias cdg='cd ~/code/gems'
-alias cdm='cd ~/code/maker'
-alias cdh='cd ~/code/hatch'
-alias cdu='cd ~/code/calumet'
-alias cdz='cd ~/code/citizen'
-alias cdl='cd ~/code/caramel'
-alias cdn='cd ~/code/nutella'
-
-alias hello='echo "hello"'
-alias emptytmp="..."
-alias cleanup="ssh good@dev.good.is 'mysql -u devdb -pdigital -h dev-db.goodaws.com -e \"delete from devssodb.users where email_address = \\\"good.test@rocketmail.com\\\"; delete from devssodb.third_party_tokens where service_token = \\\"100004212764601\\\"; delete from devssodb.third_party_tokens where user_id = 727994; delete from devdb.users where email = \\\"good.test@rocketmail.com\\\";\"' && mysql -u good -pdigital -e \"delete calumet_dev.follows, calumet_dev.users from calumet_dev.follows join calumet_dev.users on users.id = follows.user_id where email = \\\"good.test@rocketmail.com\\\"\""
-alias cleanup-accept="ssh good@dev.good.is 'mysql -u devdb -pdigital -h dev-db.goodaws.com -e \"delete from devssodb.users where email_address = \\\"good.test@rocketmail.com\\\"; delete from devssodb.third_party_tokens where service_token = \\\"100004212764601\\\"; delete from devdb.users where email = \\\"good.test@rocketmail.com\\\"; delete devcalumetdb.follows, devcalumetdb.users from devcalumetdb.follows join devcalumetdb.users on users.id = follows.user_id where email = \\\"good.test@rocketmail.com\\\"\"'"
-alias cleanup-qa2="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"good.test@rocketmail.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100004212764601\\\"; delete from qadb.users where email = \\\"good.test@rocketmail.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"good.test@rocketmail.com\\\"\"'"
-alias cleanup-qa3="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"c_calumet@yahoo.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100004372031382\\\"; delete from qadb.users where email = \\\"c_calumet@yahoo.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"c_calumet@yahoo.com\\\"\"'"
-alias cleanup-qa4="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"rgodiya@ymail.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100004952623253\\\"; delete from qadb.users where email = \\\"rgodiya@ymail.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"rgodiya@ymail.com\\\"\"'"
-alias cleanup-qa5="ssh good@qa2.good.is 'mysql -u qadb -pdigital -h qa2-db.goodaws.com -e \"delete from qassodb.users where email_address = \\\"shahesha87@gmail.com\\\"; delete from qassodb.third_party_tokens where service_token = \\\"100002471756578\\\"; delete from qadb.users where email = \\\"shahesha87@gmail.com\\\"; delete qacalumetdb.follows, qacalumetdb.users from qacalumetdb.follows join qacalumetdb.users on users.id = follows.user_id where email = \\\"shahesha87@gmail.com\\\"\"'"
