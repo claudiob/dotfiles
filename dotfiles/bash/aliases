@@ -32,6 +32,7 @@ alias  gd='git diff'
 alias gdh='git diff HEAD HEAD~'
 alias  ga='git add'
 alias  gl='git log'
+alias  gf='git fetch'
 alias gl-='git log --follow --'
 alias glf='git log --pretty=full'
 alias glm='git log --pretty=full --author `git config user.name`'
@@ -52,7 +53,7 @@ alias gmf='git merge --no-ff --no-edit'
 alias gom='git checkout master'
 alias gmm='git merge master'
 alias grm='git rebase master'
-alias  gp='git push'
+alias  gp='git push -u'
 alias  gt='git stash'
 alias gta='git stash apply'
 alias gca='git add -A . && git commit --amend --no-edit'
@@ -63,6 +64,7 @@ alias  gbn="git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\
 alias  gra='git rebase --abort'
 alias  grc='git rebase --continue'
 alias  gpr='git branch | cut -c 3- | xargs -L1 git branch -d 2> /dev/null' # Prune already merged local branches
+alias  gwh='git branch -a | grep' # git which: which remote branch matches the regex
 
 function grd() { # git restore deleted file
   git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
