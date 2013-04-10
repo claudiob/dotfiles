@@ -21,6 +21,10 @@ alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'
 alias ee="mate ~/bin/dotfiles/bash/env"
 
+# BREW
+# ---
+alias bri='brew install'
+
 # GIT
 # ---
 alias  gs='git status'
