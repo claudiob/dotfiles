@@ -34,7 +34,7 @@ How to install on a new computer
 
 9. Load **SSH settings**:
 
-        mkdir -p .ssh
+        mkdir -p ~/.ssh
         ln -sf ~/bin/dotfiles/ssh/config ~/.ssh/config
 
 10. Load **git prompt** support:
