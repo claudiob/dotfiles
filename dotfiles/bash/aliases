@@ -258,7 +258,8 @@ function zipr() {
   zip -r $1.zip $1
 }
 
-# GOOD
+# COMMON PATHS
 # ----
 
-alias   c='cd ~/code; cd'
+alias  cdb='cd ~/bin'
+alias  cdc='cd ~/code'
