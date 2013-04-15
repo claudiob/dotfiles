@@ -1,15 +1,8 @@
 #!/bin/sh
 
 # Download, compile, and copy the vcprompt command to ~/bin.
-# Originally from Geoffrey Grosenbach
+# Originally from https://github.com/djl/vcprompt
 
-mkdir -p ~/tmpvcprompt
-cd ~/tmpvcprompt
-curl http://vc.gerg.ca/hg/vcprompt/archive/tip.zip > tip.zip
-unzip tip.zip
-cd `ls|grep vcprompt`
-make
-cp vcprompt ~/bin/vcprompt
-rm -rf ~/tmpvcprompt
-cd
+curl -sL https://github.com/djl/vcprompt/raw/master/bin/vcprompt > ~/bin/vcprompt
+chmod 755 ~/bin/vcprompt
 source ~/.bashrc
