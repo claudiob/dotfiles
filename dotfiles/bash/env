@@ -1,7 +1,7 @@
 export EDITOR="mate -w"
 
 # ~/bin is prepended to have ~/bin/ssh replace /usr/bin/ssh
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="~/.rbenv/bin:~/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
 
