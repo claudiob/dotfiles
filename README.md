@@ -16,13 +16,18 @@ How to install on a new computer
 
         ln -sf ~/bin/dotfiles/bashrc     ~/.bashrc
 
-5. Enter your Github credentials in [gitconfig](http://git.io/-MEnNw), the load the **git settings**:
+5. Enter your Github credentials in [gitconfig](http://git.io/-MEnNw), then load the **git settings**:
 
-        ln -sf ~/bin/dotfiles/gitconfig  ~/.gitconfig
+        ln -sf ~/bin/dotfiles/git/config  ~/.gitconfig
 
 6. Load **git ignore settings**:
 
-        ln -sf ~/bin/dotfiles/gitignore  ~/.gitignore
+        ln -sf ~/bin/dotfiles/git/ignore  ~/.gitignore
+
+6. Load **git global hooks**:
+
+		mkdir -p ~/.git_template/hooks/
+        ln -sf ~/bin/dotfiles/git/pre-commit  ~/.git_template/hooks/
 
 7. Load **rubygems settings**:
 

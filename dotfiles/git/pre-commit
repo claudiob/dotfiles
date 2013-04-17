@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ `git diff -G "DON'?T COMMIT" --exit-code --cached --regexp-ignore-case` ]]
+then
+    echo "ERROR: You are committing a line that says DON'T COMMIT"
+    echo "       which goes against your global pre-commit hooks."
+    echo "       Please remove the line from your commit, or else"
+    echo "       run 'git commit' using the '--no-verify' option."
+    exit 1
+fi
+
