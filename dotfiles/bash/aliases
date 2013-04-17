@@ -40,7 +40,6 @@ alias  gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short --
 alias ghm='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias  gu='git pull'
 alias  gv='git mv'
-alias gcl='git clone'
 alias gli='git update-index --assume-unchanged' # locally ignore changes
 alias glu='git update-index --no-assume-unchanged' # stop ignoring changes
 alias  gc='git commit'
@@ -65,6 +64,11 @@ alias  gra='git rebase --abort'
 alias  grc='git rebase --continue'
 alias  gpr='git branch | cut -c 3- | xargs -L1 git branch -d 2> /dev/null' # Prune already merged local branches
 alias  gwh='git branch -a | grep' # git which: which remote branch matches the regex
+
+function gcl() { # clone and changes to the folder
+  git clone $1
+	cd $(echo ${1##*/} | cut -d. -f1)
+}
 
 function grd() { # git restore deleted file
   git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
