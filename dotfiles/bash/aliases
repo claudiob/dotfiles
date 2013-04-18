@@ -188,6 +188,17 @@ function rn {
 
 alias jhw='jasmine-headless-webkit'
 
+function rspecify () {
+  echo "
+group :test, :development do
+  gem 'rspec-rails'
+end
+" >> Gemfile
+  bundle
+  rails generate rspec:install
+}
+
+
 # BUNDLER
 # -------
 alias be='bundle exec'
