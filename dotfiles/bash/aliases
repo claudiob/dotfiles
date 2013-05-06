@@ -14,6 +14,10 @@ alias cx='chmod +x'
 alias rf='rm -rf'
 alias dh='du -hd 0' # current folder size
 alias tf='tail -f'
+function psg() { # find a running process
+  ps aux | head -1
+  ps aux | grep "$*" | grep -v "grep"
+}
 
 # DOTFILES
 # --------
