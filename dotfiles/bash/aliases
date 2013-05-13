@@ -110,6 +110,9 @@ function gp!() { # how I usually deploy a branch
 function gc-() { # restore the last version of a deleted file
   git checkout $(git log --pretty=format:"%h" --follow -- $1 | head -n 1)^ -- $1
 }
+function gob() { # create a feature branch with an empty "Start feature" commit message (to measure time)
+  git checkout -b $1 && git commit --allow-empty -m"Start $1"
+}
 
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
