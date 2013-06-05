@@ -18,6 +18,9 @@ function psg() { # find a running process
   ps aux | head -1
   ps aux | grep "$*" | grep -v "grep"
 }
+function psk() { # kill a running process
+  kill $(ps axo pid,command| grep "$*" | grep -v "grep" | cut -d' ' -f1)
+}
 
 # DOTFILES
 # --------
