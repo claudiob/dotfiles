@@ -161,12 +161,12 @@ alias rake!='rf spec/fixtures/vcr_cassettes && rake'
 # -----
 alias  r='rails'
 function rv {
-  if [ -f script/rails ]; then # Rails 3
+  if [ -f script/server ]; then # Rails 2
+    script/server $*;
+  elif [ -f script/rails ]; then # Rails 3
     script/rails server $*;
   elif [ -f bin/rails ]; then # Rails 4
     bin/rails server $*;
-  else # Rails 2
-    script/server $*;
   fi
 }
 function get_bg {
