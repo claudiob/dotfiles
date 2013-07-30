@@ -124,6 +124,9 @@ function gc-() { # restore the last version of a deleted file
 function gob() { # create a feature branch with an empty "Start feature" commit message (to measure time)
   git checkout -b $1 && git commit --allow-empty -m"Start $1"
 }
+function gri() { # interactive rebase with the previous SHA
+  git rebase -i $1^
+}
 
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
