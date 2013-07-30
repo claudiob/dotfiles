@@ -8,7 +8,7 @@
 # SHELL
 # -----
 alias  l='ls -la'
-alias  h='history' 
+alias  h='history'
 alias md='mkdir -p'
 alias cx='chmod +x'
 alias rf='rm -rf'
@@ -93,10 +93,10 @@ function gbt() { # git checkout and track remote branch
   git checkout -t -b $1 origin/$1
 }
 function gsu() { # git track the remote branch with the same name as the current
-  git branch --set-upstream $(gbn) origin/$(gbn)  
+  git branch --set-upstream $(gbn) origin/$(gbn)
 }
 function gg() { # git commit that reads the message from the same line
-  git add . 
+  git add .
   git commit -v -a -m "$*"
 }
 function gbump() { # bumps a gem, commits and create a tag
@@ -239,7 +239,7 @@ function run_bundler_cmd () {
     $@
   fi
 }
- 
+
 for cmd in $bundle_commands
 do
   alias $cmd="run_bundler_cmd $cmd"
@@ -248,7 +248,7 @@ done
 # RBENV
 # -----
 function gi {
-  gem install $*; 
+  gem install $*;
   rbenv rehash;
 }
 
