@@ -75,9 +75,15 @@ alias  grc='git rebase --continue'
 alias  gpr='git branch | cut -c 3- | xargs -L1 git branch -d 2> /dev/null' # Prune already merged local branches
 alias  gwh='git branch -a | grep' # git which: which remote branch matches the regex
 
-function gcl() { # clone and changes to the folder
-  git clone $1
-	cd $(echo ${1##*/} | cut -d. -f1)
+function gcl() { # clone and changes to the folder. Add github.com if missing
+  if [ $(echo $1 | tr -dc '/' | wc -c) -eq 1 ]
+  then
+    url="https://github.com/$1.git"
+  else
+    url=$1
+  fi
+  git clone $url
+	cd $(echo ${url##*/} | cut -d. -f1)
 }
 
 function grd() { # git restore deleted file
