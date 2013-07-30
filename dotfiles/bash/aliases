@@ -61,6 +61,7 @@ alias gmf='git merge --no-ff --no-edit'
 alias gom='git checkout master'
 alias gmm='git merge master'
 alias grm='git rebase master'
+alias  gr='git rebase --preserve-merges'
 alias  gp='git push -u'
 alias  gt='git stash'
 alias gta='git stash apply'
@@ -133,6 +134,7 @@ complete -o default -o nospace -F _git_merge gmf
 complete -o default -o nospace -F _git_merge gp!
 complete -o default -o nospace -F _git_push gp
 complete -o default -o nospace -F _git_stash gt
+complete -o default -o nospace -F _git_rebase gr
 # Nice to have: the output of gbr autocompletes gbt
 
 # RAKE
