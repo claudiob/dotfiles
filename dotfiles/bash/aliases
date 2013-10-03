@@ -107,7 +107,12 @@ function gbump() { # bumps a gem, commits and create a tag
   git push --tags
 }
 function gsh() { # shortens a Github URL
-  curl -i http://git.io -F "url=$1"
+  url=$1
+  anchor_split=($(echo $url |sed  's/\(#\)/\1 /g'))
+  short=$(curl -i http://git.io -F "url=${anchor_split[0]}" 2>|/dev/null | awk '/^Location:/ { print $2 }' | sed -e 's/[[:cntrl:]]//')
+  short_with_anchor="${short}#${anchor_split[1]}"
+  echo $short_with_anchor | pbcopy
+  echo $short_with_anchor
 }
 function gp!() { # how I usually deploy a branch
   git checkout master
