@@ -160,6 +160,7 @@ alias rds='rake db:setup'
 alias rdr='rake db:rollback'
 alias  rr='rake routes'
 alias  rj='rake jasmine'
+alias  rt='rake -T --all'
 alias rake!='rf spec/fixtures/vcr_cassettes && rake'
 
 # RAILS
