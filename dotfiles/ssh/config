@@ -1,3 +1,8 @@
+# See http://interrobeng.com/2013/08/25/speed-up-git-5x-to-50x/
+ControlMaster auto
+ControlPath /tmp/%r@%h:%p
+# ControlPersist yes # Only OSX >= 10.7
+
 # List hosts you normally SSH to in this file, such as:
 # Host production
 #   HostName 99.123.45.123
