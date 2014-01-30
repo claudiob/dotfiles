@@ -1,4 +1,5 @@
 hub
 vcprompt
 mate
+.DS_Store
 *.secret
