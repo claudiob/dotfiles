@@ -46,18 +46,23 @@ How to install on a new computer
 
         source ~/.bashrc
         vcprompt-install
-        
+
 11. Load **hub** support (optional):
 
         hub-install
 
-12. Don't track further changes to your private settings:
+12. Add custom bundles to Textmate 1 (optional):
+
+        ln -sf ~/bin/dotfiles/textmate ~/Library/Application\ Support/TextMate/Bundles/claudiob.tmbundle
+
+
+13. Don't track further changes to your private settings:
 
         cd ~/bin
-        git update-index --assume-unchanged ~/bin/dotfiles/bash/env.secret 
-        git update-index --assume-unchanged ~/bin/dotfiles/ssh/config 
+        git update-index --assume-unchanged ~/bin/dotfiles/bash/env.secret
+        git update-index --assume-unchanged ~/bin/dotfiles/ssh/config
 
-13. Go and edit your aliases, configuration, settings, then push to your Github account!
+14. Go and edit your aliases, configuration, settings, then push to your Github account!
 
 Other tips
 ----------
@@ -65,4 +70,4 @@ Other tips
 * Install [OSX gcc installer](https://github.com/kennethreitz/osx-gcc-installer)
 * Install [homebrew](http://mxcl.github.com/homebrew)
 * Install [rbenv](https://github.com/sstephenson/rbenv)
-* Learn how to [navigate with keyboard between OSX Terminal tabs](http://superuser.com/questions/26100/u/54004) 
+* Learn how to [navigate with keyboard between OSX Terminal tabs](http://superuser.com/questions/26100/u/54004)
