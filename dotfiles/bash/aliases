@@ -220,6 +220,8 @@ alias st='mkdir -p tmp && touch tmp/restart.txt'
 
 alias jhw='jasmine-headless-webkit'
 
+alias  db='pry-remote'
+
 function rspecify () {
   echo "
 group :test, :development do
