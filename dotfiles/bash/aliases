@@ -215,6 +215,8 @@ function rn {
   cp ../Gemfile .;
   bundle;
 }
+alias tl='tail -f log/development.log'
+alias st='mkdir -p tmp && touch tmp/restart.txt'
 
 alias jhw='jasmine-headless-webkit'
 
