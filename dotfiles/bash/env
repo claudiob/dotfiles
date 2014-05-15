@@ -5,6 +5,11 @@ export PATH="~/.rbenv/bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/heroku
 
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
 
+
+# added by travis gem
+[ -f /Users/claudiob/.travis/travis.sh ] && source /Users/claudiob/.travis/travis.sh
+
+
 # I use this environment variable for Rails >= 4 apps deployed on Heroku
 # Here I set up a variable to run those apps locally
 export SECRET_KEY_BASE='12a9a7d90ce4689b67781c76882604e855ec16f45979196b19d6c724a1c0818bff9d8c4f4b06c18706a7a6ff19379bc23b410ad8183037dfff19d597947ed3c7'
