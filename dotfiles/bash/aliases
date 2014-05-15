@@ -236,6 +236,8 @@ end
 alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
+alias bo='bundle open'
+alias bc='bundle console' # yes, it's a command, but I never use it
 
 # Don't require bundle exec for main bundled commands
 # From http://marc-bowes.com/2011/09/21/dry-your-bundle-exec-tears.html
