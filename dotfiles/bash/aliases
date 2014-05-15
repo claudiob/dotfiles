@@ -292,6 +292,67 @@ function zipr() {
   zip -r $1.zip $1
 }
 
+# HEROKU // TODO, something like:
+# ----
+
+# git:master~/code/promo$ heroku git:remote -a fspromo -r production
+# Git remote production added
+# git:master~/code/promo$ heroku git:remote -a fspromo-staging -r staging
+# Git remote staging added
+# git:master~/code/promo$ git push production master -f
+
+function heroku_repo {
+  case $1 in
+    contrax) echo "fs-contrax" ;;
+    jazz) echo "fs-jazz" ;;
+    grandcentral|grand-central) echo "fs-grandcentral" ;;
+    backoffice) echo "fs-backoffice" ;;
+    backoffice-staging) echo "fs-backoffice-staging" ;;
+    boatswain) echo "fs-boatswain" ;;
+    accounts|fs-accounts) echo "fsaccounts" ;;
+    accounts-staging|staging-accounts|fs-accounts-staging|fs-staging-accounts) echo "fsaccounts-staging" ;;
+    fs-channelyzr|channelyzr|channelyzr-public) echo "fschannelyzr" ;;
+    fs-channelyzr-api|channelyzr-api) echo "fschannelyzr-api" ;;
+    community|fs-community-api|community-api) echo "fscommunityapi" ;;
+    community-staging|staging-community) echo "fscommunityapi-staging" ;;
+    community-staging-2|community-staging2) echo "fscommunityapi-staging2" ;;
+    cpui) echo "fscreator-platform" ;;
+    cpui-staging) echo "fscreator-platform-staging" ;;
+    cpui-staging-2|cpui-staging2) echo "fscreator-platform-staging2" ;;
+    gorilla) echo "fsgorilla" ;;
+    promo) echo "fspromo" ;;
+    tools|apps) echo "fstools" ;;
+    tools-staging|apps-staging|staging-tools|staging-apps) echo "fstools-staging" ;;
+    vitals) echo "fsvitals" ;;
+    ytc|youtubetopiccloud) echo "fsyoutube-topic-cloud" ;;
+    dashboard) echo "fullscreenv2" ;;
+    beta) echo "fsdashboard-beta" ;;
+    *) echo "$1" ;;
+  esac
+}
+
+function heroku_run {
+  heroku run rails console --app `heroku_repo $1`
+}
+
+function heroku_log {
+  heroku logs --tail --app `heroku_repo $1`
+}
+
+function heroku_backup {
+  heroku_repo=`heroku_repo $1`
+  heroku_backup_line=`heroku pgbackups --app $heroku_repo | tail -1`
+  heroku_backup_number=`echo $heroku_backup_line | cut -d\  -f1`
+  heroku_backup_url=`heroku pgbackups:url $heroku_backup_number --app $heroku_repo`
+  heroku_backup_timestamp=`echo $heroku_backup_line | cut -d\  -f2 | tr '/' '_'`
+  curl $heroku_backup_url -o "${heroku_backup_timestamp}_${heroku_repo}.dump"
+}
+
+alias   hr='heroku_run'
+alias   hl='heroku_log'
+alias   hb='heroku_backup'
+
+
 # COMMON PATHS
 # ----
 
