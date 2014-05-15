@@ -187,24 +187,7 @@ function unset_bg {
   osascript -e "tell application \"Terminal\" to set current settings of first window to $*"
 }
 
-function rc { # custom Rails console
-  term_settings=$(get_bg) # store previous color
-  # case $1 in # change color based on environment
-  #   stage|staging) set_bg "{0, 6000, 3000}" ;;
-  #   prod|production) set_bg "{6000, 3000, 0}" ;;
-  #   *) set_bg "{3000, 3000, 6000}" ;;
-  # esac
-  if which pry >/dev/null; then # use pry if installed
-    if test -z "$1"; then # if environment is present, prefix it
-      pry # pry automatically load Rails -- check .pryrc
-    else
-      RAILS_ENV=$1 pry
-    fi
-  else
-    rails console $*
-  fi
-  #unset_bg $term_settings # restore previous color
-}
+alias  rc='rails console'
 alias  rg='rails generate'
 alias rgs='rails generate scaffold'
 alias rgm='rails generate migration'
