@@ -327,6 +327,10 @@ function heroku_repo {
     ytc|youtubetopiccloud) echo "fsyoutube-topic-cloud" ;;
     dashboard) echo "fullscreenv2" ;;
     beta) echo "fsdashboard-beta" ;;
+    mercury) echo "fs-mercury" ;;
+    onboarding|creatorx) echo "fs-onboarding" ;;
+    analytics) echo "fsanalytics" ;;
+    talent|playbook|talent-playbook|talent_playbook|tp) echo "fullscreen-tp-prod" ;;
     *) echo "$1" ;;
   esac
 }
@@ -370,3 +374,5 @@ alias  cdr='cd ~/code/promo'
 alias  cdm='cd ~/code/community'
 alias  cdg='cd ~/code/gorilla'
 alias  cdy='cd ~/code/yt'
+alias  cdk='cd ~/code/monkey'
+alias  cdo='cd ~/code/playbook'
