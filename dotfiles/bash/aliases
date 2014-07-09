@@ -278,7 +278,7 @@ function pull {
 
 # TEXTMATE
 # --------
-#alias  m='mate .'
+alias m='mate .'
 alias hosts='mate /etc/hosts'
 
 # TOP
