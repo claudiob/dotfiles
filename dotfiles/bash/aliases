@@ -352,9 +352,24 @@ function heroku_backup {
   curl $heroku_backup_url -o "${heroku_backup_timestamp}_${heroku_repo}.dump"
 }
 
+function heroku_deploy {
+  heroku_repo=`heroku_repo $1`
+	echo "◊◊◊ Sending notification to slack"
+	channel_name='team-plutus'
+	curl -o /dev/null -s -X POST "https://slack.com/api/chat.postMessage?token=$SLACK_API_TOKEN&channel=$channel_name&text=claudiob%20is%20about%20to%20push%20$heroku_repo%20master%20into%20production.%20If%20anyone%20here%20has%20any%20reason%20why%20these%20two%20should%20not%20be%20joined%20together%2C%20let%20him%20speak%20now%20or%20forever%20remain%20silent&username=Deploy%20warning&icon_emoji=%3Atwo_men_holding_hands%3A&pretty=1"
+	echo "◊◊◊ Pushing $heroku_repo to production"
+	git push production master
+	echo "◊◊◊ Running rake db:migrate for $heroku_repo"
+	heroku run rake db:migrate --app $heroku_repo
+	echo "◊◊◊ Restarting servers for $heroku_repo"
+	heroku restart --app $heroku_repo
+	echo "◊◊◊ $heroku_repo deployed!"
+}
+
 alias   hr='heroku_run'
 alias   hl='heroku_log'
 alias   hb='heroku_backup'
+alias   hd='heroku_deploy'
 
 
 # COMMON PATHS
