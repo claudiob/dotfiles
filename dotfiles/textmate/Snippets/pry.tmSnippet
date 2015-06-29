@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>require 'pry'; binding.pry; true</string>
+	<string>require 'pry'; binding.pry; true; </string>
 	<key>name</key>
 	<string>pry</string>
 	<key>scope</key>
-	<string>source.ruby</string>
+	<string>source.ruby, source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>rp</string>
+	<string>bp</string>
 	<key>uuid</key>
 	<string>847F1E31-8D77-49E8-9683-B5ADF2B8B01B</string>
 </dict>

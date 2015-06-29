@@ -7,9 +7,9 @@
 	<key>name</key>
 	<string>binding.pry_remote</string>
 	<key>scope</key>
-	<string>source.ruby</string>
+	<string>source.ruby, source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>bp</string>
+	<string>br</string>
 	<key>uuid</key>
 	<string>0D328FF2-56DA-45D4-8047-126DB75B1F02</string>
 </dict>
