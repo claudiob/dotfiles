@@ -81,6 +81,20 @@ alias  grc='git rebase --continue'
 alias  gpr='git branch | cut -c 3- | grep -v master | xargs -L1 git branch -d 2> /dev/null' # Prune already merged local branches
 alias  gwh='git branch -a | grep' # git which: which remote branch matches the regex
 alias grpo='git remote prune origin'
+alias   g!='git fetch && git rebase origin/master && gpr'
+
+function gp!() { # pushes. if the current branch is staging, opens a PR against master
+  if [ "$(gbn)" == "staging" ]
+  then
+    git fetch
+    git rebase origin/master
+    git push -u
+    repo=`git remote -v|grep -m1 origin | cut -d\: -f2 | cut -d\. -f1`
+    open "https://github.com/$repo/compare/staging?expand=1"
+  else
+    git push -u
+  fi
+}
 
 function gcl() { # clone and changes to the folder. Add github.com if missing
   if [ $(echo $1 | tr -dc '/' | wc -c) -eq 1 ]
@@ -120,16 +134,7 @@ function gsh() { # shortens a Github URL
   echo $short_with_anchor | pbcopy
   echo $short_with_anchor
 }
-function gp!() { # how I usually deploy a branch
-  git checkout master
-  git pull
-  git checkout $1
-  git rebase master
-  git checkout master
-  git merge --no-ff --no-edit $1
-  git push
-  git branch -d $1
-}
+
 function gc-() { # restore the last version of a deleted file
   git checkout $(git log --pretty=format:"%h" --follow -- $1 | head -n 1)^ -- $1
 }
