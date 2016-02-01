@@ -4,7 +4,7 @@ How to install on a new computer
 1. Fork this project into your own Github account
 2. Clone on your machine:
 
-        git clone https://github.com/<YOUR_GITHUB_USERNAME>/bin.git ~/bin
+        git clone https://github.com/<YOUR_GITHUB_USERNAME>/dotfiles.git ~/bin
 
 3. Make sure the `.bashrc` file is loaded every time you open the Terminal:
 
