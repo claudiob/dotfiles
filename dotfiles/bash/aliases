@@ -237,7 +237,7 @@ alias bc='bundle console' # yes, it's a command, but I never use it
 
 # Don't require bundle exec for main bundled commands
 # From http://marc-bowes.com/2011/09/21/dry-your-bundle-exec-tears.html
-bundle_commands="rake spec rspec cucumber cap watchr rails rackup guard etl compass jasmine-headless-webkit thor sidekiq parallel_rspec zeus spring knife pry-remote jekyll middleman padrino"
+bundle_commands="foreman rake spec rspec cucumber cap watchr rails rackup guard etl compass jasmine-headless-webkit thor sidekiq parallel_rspec zeus spring knife pry-remote jekyll middleman padrino"
 
 function run_bundler_cmd () {
   if [ -r ./Gemfile ]; then
