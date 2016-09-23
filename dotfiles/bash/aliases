@@ -261,7 +261,7 @@ function gi {
 
 function gua { # gem uninstall all (except system), then reinstall bundler, pry and git (used by Textmate Github plugin)
   gem list | cut -d" " -f1 | grep -v test-unit | grep -v psych | grep -v rdoc | grep -v io-console | grep -v rake | grep -v bigdecimal | grep -v json | grep -v minitest | xargs gem uninstall -aIx
-  gem install bundler git pry
+  gem install bundler git pry jekyll
 }
 
 # SVN
