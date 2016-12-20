@@ -382,17 +382,16 @@ function heroku_backup! {
 
 function heroku_capture {
   heroku_repo=`heroku_repo $1`
-  heroku_backup_line=`heroku pg:backups capture --app $heroku_repo`
-  heroku_backup_id=`echo $heroku_backup_line | cut -d\  -f32`
+  heroku_backup_line=`heroku pg:backups capture --app $heroku_repo 2>&1`
+  heroku_backup_id=`echo $heroku_backup_line | awk '{ print $37 }' | sed -e 's/\.//g'`
   heroku_backup_url=`heroku pg:backups public-url $heroku_backup_id --app $heroku_repo`
-  heroku_timestamp_line=`heroku pg:backups --app $heroku_repo | cut -d\  -f4`
-  heroku_backup_timestamp=`echo $heroku_timestamp_line | cut -d\  -f1`
+  heroku_backup_timestamp=`date +%s`
   curl $heroku_backup_url -o "${heroku_backup_timestamp}_${heroku_repo}.dump"
   heroku pg:backups delete $heroku_backup_id --app $heroku_repo --confirm $heroku_repo
 
   if [ -f config/database.yml ]; then
     database=`grep -m1 'database:' config/database.yml | cut -d\  -f4`
-    rake db:drop db:create
+    bundle exec rake db:drop db:create
     pg_restore --verbose --clean --no-acl --no-owner -d $database ${heroku_backup_timestamp}_${heroku_repo}.dump
   fi
 
