@@ -10,6 +10,7 @@
 alias  l='ls -la'
 alias  h='history'
 alias md='mkdir -p'
+alias  p='openssl rand -base64 32'
 alias cx='chmod +x'
 alias rf='rm -rf'
 alias dh='du -hd 0' # current folder size
@@ -44,7 +45,7 @@ alias  gh='git show'
 alias gsf='git show --name-status'
 alias  ga='git add'
 alias  gl='git log'
-alias  gf='git fetch'
+alias  gf='git fetch --prune'
 alias gl-='git log --follow --'
 alias glf='git log --pretty=medium'
 alias ghh='git show HEAD'
@@ -69,6 +70,7 @@ alias grm='git rebase master'
 alias grs='git rebase staging'
 alias  gr='git rebase --preserve-merges'
 alias  gp='git push -u'
+alias gpf='git push --force-with-lease'
 alias  gt='git stash -u'
 alias gta='git stash apply'
 alias gca='git add -A . && git commit --amend --no-edit'
@@ -260,7 +262,7 @@ function gi {
 }
 
 function gua { # gem uninstall all (except system), then reinstall bundler, pry and git (used by Textmate Github plugin)
-  gem list | cut -d" " -f1 | grep -v test-unit | grep -v psych | grep -v rdoc | grep -v io-console | grep -v rake | grep -v bigdecimal | grep -v json | grep -v minitest | xargs gem uninstall -aIx
+  gem list | cut -d" " -f1 | grep -v test-unit | grep -v openssl | grep -v psych | grep -v rdoc | grep -v io-console | grep -v rake | grep -v bigdecimal | grep -v json | grep -v minitest | xargs gem uninstall -aIx
   gem install bundler git pry jekyll
 }
 
