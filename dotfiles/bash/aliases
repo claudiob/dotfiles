@@ -36,6 +36,7 @@ alias bri='brew install'
 
 # GIT
 # ---
+alias gap='git add --intent-to-add . && git add --patch'
 alias  gs='git status'
 alias  gd='git diff'
 alias gdh='git diff HEAD HEAD~'
@@ -74,6 +75,7 @@ alias gpf='git push --force-with-lease'
 alias  gt='git stash -u'
 alias gta='git stash apply'
 alias gca='git add -A . && git commit --amend --no-edit'
+alias gcae='git commit --amend --no-edit'
 alias grh='git reset HEAD'
 alias grhh='git reset --hard HEAD'
 alias  gla='git shortlog -ns' # Summary by author
@@ -131,7 +133,7 @@ function gbump() { # bumps a gem, commits and create a tag
 function gsh() { # shortens a Github URL
   url=$1
   anchor_split=($(echo $url |sed  's/\(#\)/\1 /g'))
-  short=$(curl -i http://git.io -F "url=${anchor_split[0]}" 2>|/dev/null | awk '/^Location:/ { print $2 }' | sed -e 's/[[:cntrl:]]//')
+  short=$(curl -i https://git.io -F "url=${anchor_split[0]}" 2>|/dev/null | awk '/^Location:/ { print $2 }' | sed -e 's/[[:cntrl:]]//')
   short_with_anchor="${short}#${anchor_split[1]}"
   echo $short_with_anchor | pbcopy
   echo $short_with_anchor
@@ -262,7 +264,7 @@ function gi {
 }
 
 function gua { # gem uninstall all (except system), then reinstall bundler, pry and git (used by Textmate Github plugin)
-  gem list | cut -d" " -f1 | grep -v test-unit | grep -v openssl | grep -v psych | grep -v rdoc | grep -v io-console | grep -v rake | grep -v bigdecimal | grep -v json | grep -v minitest | xargs gem uninstall -aIx
+  gem list | cut -d" " -f1 | grep -v cmath | grep -v csv | grep -v date | grep -v dbm | grep -v etc | grep -v fcntl | grep -v fiddle | grep -v fileutils | grep -v gdbm | grep -v ipaddr | grep -v scanf | grep -v sdbm | grep -v stringio | grep -v strscan | grep -v webrick | grep -v zlib | grep -v test-unit | grep -v openssl | grep -v psych | grep -v rdoc | grep -v io-console | grep -v rake | grep -v bigdecimal | grep -v json | grep -v minitest | xargs gem uninstall -aIx
   gem install bundler git pry jekyll
 }
 
