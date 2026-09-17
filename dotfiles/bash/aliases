@@ -8,8 +8,10 @@
 # SHELL
 # -----
 alias  l='ls -la'
+alias  t='bin/rails test'
 alias  h='history'
 alias md='mkdir -p'
+alias  o='open .'
 alias  p='openssl rand -base64 32'
 alias cx='chmod +x'
 alias rf='rm -rf'
@@ -49,28 +51,33 @@ alias  gl='git log'
 alias  gf='git fetch --prune'
 alias gl-='git log --follow --'
 alias glf='git log --pretty=medium'
-alias ghh='git show HEAD'
+alias ghh='git show HEAD^'
 alias glm='git log --pretty=full --author `git config user.name`'
 alias ghm='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias  gu='git pull'
 alias  gv='git mv'
 alias gli='git update-index --assume-unchanged' # locally ignore changes
 alias glu='git update-index --no-assume-unchanged' # stop ignoring changes
-alias  gc='git commit'
+alias  gc='git commit --no-verify'
 alias  go='git checkout'
 alias gcp='git cherry-pick'
 alias  gb="git for-each-ref --sort=committerdate refs/heads/ --format='%1B[0;33m%(authordate:short)%1B[0;31m %(refname:short)%1B[m | %(subject)' refs/heads"
 alias gbr='git branch -r'
 alias  gm='git merge'
 alias gmf='git merge --no-ff --no-edit'
-alias gom='git checkout master'
+alias gom='git checkout main'
+alias gop='git checkout production'
 alias gos='git checkout staging'
-alias gomm='git checkout origin/master -b master'
-alias gmm='git merge master'
-alias grm='git rebase master'
+alias gomm='git checkout origin/main -b main'
+alias gmm='git merge main'
+alias grm='git rebase main'
+alias grp='git rebase production'
 alias grs='git rebase staging'
 alias  gr='git rebase --preserve-merges'
-alias  gp='git push -u'
+# alias  gp='git push -u'
+function gp() {
+  git push -u $@ && /opt/homebrew/bin/gh pr create --base main --fill --web
+}
 alias gpf='git push --force-with-lease'
 alias  gt='git stash -u'
 alias gta='git stash apply'
@@ -169,27 +176,22 @@ complete -o default -o nospace -F _git_rebase gr
 
 # RAKE
 # ----
-alias rdc='rake db:create'
-alias rdm='rake db:migrate'
-alias rds='rake db:setup'
-alias rdr='rake db:rollback'
-alias  rr='rake routes'
-alias  rj='rake jasmine'
-alias  rt='rake -T --all'
-alias rake!='rf spec/fixtures/vcr_cassettes && rake'
+alias rdc='rails db:create'
+alias rdm='rails db:migrate'
+alias rds='rails db:migrate:status'
+alias rdr='rails db:rollback'
+alias rdo='rails db:migrate:redo'
+alias  rr='rails routes'
+alias  rt='rails -T --all'
+
+alias redis='/opt/homebrew/opt/redis/bin/redis-server /opt/homebrew/etc/redis.conf'
 
 # RAILS
 # -----
 alias  r='rails'
-function rv {
-  if [ -f script/server ]; then # Rails 2
-    script/server $*;
-  elif [ -f script/rails ]; then # Rails 3
-    script/rails server $*;
-  elif [ -f bin/rails ]; then # Rails 4
-    bin/rails server $*;
-  fi
-}
+alias rv='bin/rails s'
+alias rk='RAILS_ENV=test rails db:reset && bin/rake'
+
 function get_bg {
   osascript -e "tell application \"Terminal\" to get current settings of first window"
 }
@@ -206,6 +208,8 @@ alias  rc='rails console'
 alias  rg='rails generate'
 alias rgs='rails generate scaffold'
 alias rgm='rails generate migration'
+alias rcs='rails credentials:show'
+alias rce='rails credentials:edit'
 function rn {
   cd ~/code;
   rails new $* --skip-gemfile --skip-prototype --database=mysql;
@@ -214,6 +218,7 @@ function rn {
   bundle;
 }
 alias tl='tail -f log/development.log'
+alias tt='tail -f log/test.log'
 alias st='mkdir -p tmp && touch tmp/restart.txt'
 
 alias jhw='jasmine-headless-webkit'
@@ -235,7 +240,7 @@ end
 # -------
 alias be='bundle exec'
 alias bi='bundle install'
-alias bu='bundle update'
+alias bu='bundle update --all'
 alias bo='bundle open'
 alias bc='bundle console' # yes, it's a command, but I never use it
 
@@ -521,3 +526,6 @@ alias cdas='cd ~/code/rails/activesupport'
 function gcf() {
   git clone git@github.com:Fullscreen/$1.git
 }
+
+alias   os='open tmp/screenshots/failures_test_a_typical_flow.png'
+alias   oc='open coverage/index.html'

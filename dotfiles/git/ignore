@@ -30,3 +30,6 @@ ehthumbs.db
 .*.swp
 # Icon?
 Thumbs.db
+
+**/.claude/settings.local.json
+.claude/agent-memory/**
